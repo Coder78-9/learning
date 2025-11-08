@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lessons</title>
+</head>
+<body>
+
+<h1>Math Lessons</h1>
+
+  <div id="lessonContainer"></div>
+<script>
+  <script>
+
+// 1️⃣ List the lessons YOU want
+var lessons = [
+  { id: 1, title: "Adding 2-Digit Numbers" },
+  { id: 2, title: "Subtracting 2-Digit Numbers" },
+  { id: 3, title: "Multiplication Basics" }
+];
+
+// 2️⃣ Find the <div> we created
+var container = document.getElementById("lessonContainer");
+
+// 3️⃣ Loop through lessons and make a button for each one
+lessons.forEach(function(lesson) {
+
+  var btn = document.createElement("button"); // create a button
+  btn.textContent = lesson.title;              // name on button
+  btn.style.display = "block";                 // stack them vertically
+  btn.style.margin = "8px auto";               // spacing + center
+  btn.style.padding = "10px 18px";
+
+  // 4️⃣ When clicked → open learn page and send ID
+  btn.onclick = function() {
+    window.location.href = "learn.html?id=" + lesson.id;
+  };
+
+  container.appendChild(btn); // add button to page
+});
+
+</script>
+
+</script>
+</body>
+</html>
