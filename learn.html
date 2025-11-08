@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lesson Viewer</title>
+</head>
+<body>
+
+<h1 id="lessonTitle">Loading...</h1>
+
+<script>
+// 1️⃣ Get the lesson ID from the URL
+var params = new URLSearchParams(window.location.search);
+var lessonId = parseInt(params.get("id")); // example: 1, 2, 3
+
+// 2️⃣ Same lesson list as lessons.html
+var lessons = [
+  { id: 1, title: "Adding 2-Digit Numbers" },
+  { id: 2, title: "Subtracting 2-Digit Numbers" },
+  { id: 3, title: "Multiplication Basics" }
+];
+
+// 3️⃣ Find the lesson with that ID
+var lesson = lessons.find(function(item) {
+  return item.id === lessonId;
+});
+
+// 4️⃣ Show the lesson title on the page
+if (lesson) {
+  document.getElementById("lessonTitle").textContent = lesson.title;
+} else {
+  document.getElementById("lessonTitle").textContent = "Lesson not found!";
+}
+</script>
+
+</body>
+</html>
