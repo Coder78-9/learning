@@ -6,6 +6,7 @@
 <body>
 
 <h1 id="lessonTitle">Loading...</h1>
+<iframe id="lessonVideo" width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
 <script>
 // 1️⃣ Get the lesson ID from the URL
@@ -14,9 +15,9 @@ var lessonId = parseInt(params.get("id")); // example: 1, 2, 3
 
 // 2️⃣ Same lesson list as lessons.html
 var lessons = [
-  { id: 1, title: "Adding 2-Digit Numbers" },
-  { id: 2, title: "Subtracting 2-Digit Numbers" },
-  { id: 3, title: "Multiplication Basics" }
+  { id: 1, title: "Adding 2-Digit Numbers", video: "https://www.youtube.com/embed/4ybE-gCL4wU" },
+  { id: 2, title: "Subtracting 2-Digit Numbers", video: "https://www.youtube.com/embed/MfBnwqiomG4" },
+  { id: 3, title: "Multiplication Basics", video: "https://www.youtube.com/embed/cqlzfoRmU6o" }
 ];
 
 // 3️⃣ Find the lesson with that ID
@@ -27,6 +28,7 @@ var lesson = lessons.find(function(item) {
 // 4️⃣ Show the lesson title on the page
 if (lesson) {
   document.getElementById("lessonTitle").textContent = lesson.title;
+    document.getElementById("lessonVideo").src = lesson.video;
 } else {
   document.getElementById("lessonTitle").textContent = "Lesson not found!";
 }
